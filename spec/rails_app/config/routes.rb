@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     resources :render_template, only: :show
     resource :respond_to, only: :show, controller: :respond_to
     resource :respond_with, only: :show, controller: :respond_with
+    resource :inherited_view, only: :show, controller: :inherited_view
+    resource :child_inherited_view, only: :show, controller: :child_inherited_view
   end
 end

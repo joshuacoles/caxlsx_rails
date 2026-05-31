@@ -22,9 +22,7 @@ ActionController::Renderers.add :xlsx do |filename, options|
   #
   if options[:template].nil?
     options[:template] ||= action_name
-    options[:prefixes] ||= self.class.ancestors
-                               .take_while { |a| a.respond_to?(:controller_path) }
-                               .map(&:controller_path)
+    options[:prefixes] ||= self.class._prefixes
   end
 
   options[:template] = filename.gsub(%r{^.*/}, '') if options[:template] == action_name
